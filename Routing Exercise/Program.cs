@@ -30,10 +30,41 @@ namespace Routing_Exercise
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            //cows moos
             app.MapControllerRoute(
                 name: "Cow",
-                pattern: "{*num}",
+                pattern: "{num}",
                 defaults: new { controller = "Home", action = "Cow" });
+
+            //cow with name
+            app.MapControllerRoute(
+                name: "CowName",
+                pattern: "{num}/{name}",
+                defaults: new { controller = "Home", action = "CowName" });
+
+            //gallery
+            app.MapControllerRoute(
+                name: "CowGallery",
+                pattern: "AllCows/Gallery/{num}",
+                defaults: new { controller = "Home", action = "CowGallery" });
+
+            //cow pages
+            app.MapControllerRoute(
+                name: "CowGalleryPage",
+                pattern: "AllCows/Gallery/5/Page{num}",
+                defaults: new { controller = "Home", action = "CowGalleryPage" });
+
+            //double nums
+            app.MapControllerRoute(
+                name: "AllCowsdoubleNum",
+                pattern: "AllCows/Gallery/{num1}/{num2}",
+                defaults: new { controller = "Home", action = "AllCowsdoubleNum" });
+
+            //chickfila
+            app.MapControllerRoute(
+                name: "Chicken",
+                pattern: "{EatMoreChicken}",
+                defaults: new { controller = "Home", action = "Chicken" });
 
             //catches all
             app.MapControllerRoute(
